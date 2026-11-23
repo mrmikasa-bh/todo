@@ -8,21 +8,21 @@
   :root {
     --bg: #ffffff; --fg: #111111; --muted: #666666; --border: #dddddd;
     --input-bg: #ffffff; --btn-bg: #efefef; --tag-bg: #e8eefc; --tag-fg: #223344;
-    --danger: #cc0000;
+    --danger: #cc0000; --header-bg: #d32f2f;
     color-scheme: light;
   }
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
       --bg: #1c1c1e; --fg: #f2f2f2; --muted: #a0a0a5; --border: #3a3a3c;
       --input-bg: #2c2c2e; --btn-bg: #3a3a3c; --tag-bg: #2f3b5c; --tag-fg: #d6e0ff;
-      --danger: #ff6b6b;
+      --danger: #ff6b6b; --header-bg: #b71c1c;
       color-scheme: dark;
     }
   }
   :root[data-theme="dark"] {
     --bg: #1c1c1e; --fg: #f2f2f2; --muted: #a0a0a5; --border: #3a3a3c;
     --input-bg: #2c2c2e; --btn-bg: #3a3a3c; --tag-bg: #2f3b5c; --tag-fg: #d6e0ff;
-    --danger: #ff6b6b;
+    --danger: #ff6b6b; --header-bg: #b71c1c;
     color-scheme: dark;
   }
 
@@ -30,9 +30,12 @@
          background: var(--bg); color: var(--fg); }
   /* Title stays centered; the theme icon sits at the right end of the header */
   header { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center;
-           padding-bottom: 12px; margin-bottom: 16px; border-bottom: 1px solid var(--border); }
+           padding: 12px; margin-bottom: 16px; border-radius: 8px;
+           background: var(--header-bg); color: #ffffff; }
   header h1 { margin: 0; text-align: center; }
-  header .icon-btn { justify-self: end; }
+  header #count { color: #ffffff; }
+  header .icon-btn { justify-self: end; background: rgba(255,255,255,.2); color: #ffffff;
+                     border-color: rgba(255,255,255,.5); }
   .row { display: flex; gap: 8px; margin-bottom: 8px; }
   input[type=text], input[type=date], select {
     padding: 8px; font-size: 1rem; min-width: 0;
